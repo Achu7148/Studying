@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -63,7 +64,9 @@ public class TestCode {
     	for(int row=1;row<rowCount;row++)
     	{
     		String Username = sh.getCell(1,row).getContents();
-    		driver.findElement(By.id("user_name")).sendKeys(Username);    		
+    		driver.findElement(By.id("user_name")).sendKeys(Username);
+    		
+    		
     		String Password = sh.getCell(2,row).getContents();
     		driver.findElement(By.id("user_pass")).sendKeys(Password);    		
     		driver.findElement(By.id("login_button")).click();
