@@ -1,59 +1,36 @@
 package Study.Studying;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+public class ExcelColumn()
 
-import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.sl.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+{
 
-public class ExcelColumn {
-	
-	public FileInputStream fis = null;
-    public HSSFWorkbook workbook = null;
-    public org.apache.poi.ss.usermodel.Sheet sheet = null;
-    public HSSFRow row = null;
-    public HSSFCell cell = null;
-    
-public void Read() throws EncryptedDocumentException, InvalidFormatException, FileNotFoundException, IOException {	
+Workbook workbook = WorkbookFactory.create(new FileInputStream("C:\\file.xlsx"));
 
-	Workbook workbook = WorkbookFactory.create(new FileInputStream("C:\\file.xlsx"));
-
-sheet = workbook.getSheetAt(0);
-int totalRows = sheet.getPhysicalNumberOfRows();
+Sheet sheet = workbook.getSheetAt(0);
+totalRows = sheet.getPhysicalNumberOfRows();
 
 Map<String, Integer> map = new HashMap<String,Integer>(); //Create map
-HSSFRow row = (HSSFRow) sheet.getRow(0); //Get first row
+HSSFRow row = sheet.getRow(0); //Get first row
 //following is boilerplate from the java doc
 short minColIx = row.getFirstCellNum(); //get the first column index for a row
 short maxColIx = row.getLastCellNum(); //get the last column index for a row
 for(short colIx=minColIx; colIx<maxColIx; colIx++) { //loop from first to last index
 HSSFCell cell = row.getCell(colIx); //get the cell
-map.put(cell.getStringCellValue(),cell.getColumnIndex());//add the cell contents (name of column) and cell index to the map
+map.put(cell.getStringCellValue(),cell.getColumnIndex()) //add the cell contents (name of column) and cell index to the map
 }
+
 List<ReportRow> listOfDataFromReport = new ArrayList<ReportRow>();
 for(int x = 1; x<=totalRows; x++){
  ReportRow rr = new ReportRow(); //Data structure to hold the data from the xls file.
- HSSFRow dataRow = (HSSFRow) sheet.getRow(x); //get row 1 to row n (rows containing data)
+ HSSFRow dataRow = sheet.getRow(x); //get row 1 to row n (rows containing data)
 
- int idxForColumn1 = map.get("column1"); //get the column index for the column with header name = "Column1"
- int idxForColumn2 = map.get("column2"); //get the column index for the column with header name = "Column2"
- int idxForColumn3 = map.get("column3"); //get the column index for the column with header name = "Column3"
+ int idxForColumn1 = map.get("Column1"); //get the column index for the column with header name = "Column1"
+ int idxForColumn2 = map.get("Column2"); //get the column index for the column with header name = "Column2"
+ int idxForColumn3 = map.get("Column3"); //get the column index for the column with header name = "Column3"
 
- HSSFCell cell1 = dataRow.getCell(idxForColumn1); //Get the cells for each of the indexes
- HSSFCell cell2 = dataRow.getCell(idxForColumn2);
- HSSFCell cell3 = dataRow.getCell(idxForColumn3);
+ HSSFCell cell1 = dataRow.getCell(idxForColumn1) //Get the cells for each of the indexes
+ HSSFCell cell2 = dataRow.getCell(idxForColumn2) 
+ HSSFCell cell3 = dataRow.getCell(idxForColumn3)  
 
  //NOTE THAT YOU HAVE TO KNOW THE DATA TYPES OF THE DATA YOU'RE EXTRACTING.
  //FOR EXAMPLE I DON'T THINK YOU CAN USE cell.getStringCellValue IF YOU'RE TRYING TO GET A NUMBER
@@ -67,7 +44,7 @@ for(int x = 1; x<=totalRows; x++){
 
 //Now you have a list of report rows
 for(int j = 0; j< listOfDataFromReport.size();j++){
-   System.out.println("Column 1 Value: " +   listOfDataFromReport.get(j).getColumn1());
+   System.out.println("Column 1 Value: " +   listOfDataFromReport.get(j).getColumn1())
 //etc...    
 }
 }
@@ -99,5 +76,4 @@ public String getColumn3(){
 public void setColumn3(String column3){
     this.column3 = column3;
 }   
-}
 }
