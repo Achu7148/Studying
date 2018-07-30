@@ -1,4 +1,4 @@
-package Study.Studying;
+package Others;
 
 public class ReadExcelDataUsingUtilClass
 {

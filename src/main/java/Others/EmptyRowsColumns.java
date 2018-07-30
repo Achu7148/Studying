@@ -1,4 +1,4 @@
-package Study.Studying;
+package Others;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
