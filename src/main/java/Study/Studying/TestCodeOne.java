@@ -56,7 +56,7 @@ public class TestCodeOne {
         FileInputStream fs = new FileInputStream(strReadFile);
     	Workbook wb = Workbook.getWorkbook(fs);
     	Sheet sh = wb.getSheet("Sheet1");
-    	int rowCount=sh.getRows();
+    //	int rowCount=sh.getRows();
     	System.out.println("No of Rows:"+rowCount);
     	Screen s=new Screen();
     	

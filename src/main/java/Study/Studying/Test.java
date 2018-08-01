@@ -23,6 +23,7 @@ public class Test
 	static WebDriver driver;
 	public static String strReadFile = "D:\\Book1.xls"; 
 
+
 public static void main(String args[]) throws Exception, FindFailed, InterruptedException
 {
 	System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
@@ -31,7 +32,7 @@ public static void main(String args[]) throws Exception, FindFailed, Interrupted
     driver.navigate().to("http://training.openspan.com/login");
     System.out.println("ReadExcel : " + strReadFile);
     
-    FileInputStream fs = new FileInputStream(strReadFile);
+	FileInputStream fs = new FileInputStream(strReadFile);
 	Workbook wb = Workbook.getWorkbook(fs);
 	Sheet sh = wb.getSheet("Sheet1");
 	int rowCount=sh.getRows();
@@ -67,13 +68,16 @@ public static void main(String args[]) throws Exception, FindFailed, Interrupted
 public static int columnname(String columnName, Sheet sheetAt) throws Exception
 {
 	
-	Row rows;
-	 rows=sheetAt.getRow();
+	//Row rows;
+	FileInputStream fs = new FileInputStream(strReadFile);
+	Workbook wb = Workbook.getWorkbook(fs);
+	Sheet sh = wb.getSheet("Sheet1");
+	int rowCount=sh.getRows();
    // Row rows;
    // rows = sheetAt.getRows();
 
     int col = -1;
-    for (int i=0; i<.getLastCellNum(); i++) {
+    for (int i=0; i<rowcount.getLastCellNum(); i++) {
         Cell cell = rows.getCell(i);
         if (cell == null || cell.getCellType() == Cell.CELL_TYPE_BLANK) {
             continue;
