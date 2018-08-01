@@ -2,6 +2,7 @@ package Study.Studying;
 
 import java.io.FileInputStream;
 
+import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -65,11 +66,14 @@ public static void main(String args[]) throws Exception, FindFailed, Interrupted
 
 public static int columnname(String columnName, Sheet sheetAt) throws Exception
 {
-    Row rows;
-    rows = sheetAt.getRows();
+	
+	Row rows;
+	 rows=sheetAt.getRow();
+   // Row rows;
+   // rows = sheetAt.getRows();
 
     int col = -1;
-    for (int i=0; i<rows.getLastCellNum(); i++) {
+    for (int i=0; i<.getLastCellNum(); i++) {
         Cell cell = rows.getCell(i);
         if (cell == null || cell.getCellType() == Cell.CELL_TYPE_BLANK) {
             continue;
