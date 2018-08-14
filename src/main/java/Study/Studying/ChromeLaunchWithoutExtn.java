@@ -10,9 +10,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.sikuli.script.FindFailed;
 
-import org.sikuli.script.Pattern;
-
-import org.sikuli.script.Screen;
 
 
 
