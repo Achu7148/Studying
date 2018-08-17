@@ -29,7 +29,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class RajuCode {
+public class RajuCodePegaExcelreadWrite {
 	static WebDriver driver;
 	static PrintWriter pw;
 	static WebElement mngrid;

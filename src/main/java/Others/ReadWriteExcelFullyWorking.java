@@ -32,7 +32,7 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException; 
 
-public class TestCode {
+public class ReadWriteExcelFullyWorking {
 	static WebDriver driver;
 	static PrintWriter pw;
 	static WebElement mngrid;

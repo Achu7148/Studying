@@ -10,7 +10,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 
-public class EmptyRowsColumns {
+public class ReadXLSFileWithBlankCells{
 
 	public static final String EXCEL_FILE = "D:/TestData.xls";
 	
