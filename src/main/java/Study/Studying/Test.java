@@ -65,36 +65,28 @@ public static void main(String args[]) throws Exception, FindFailed, Interrupted
 	 driver.close();
 }
 
-public static int columnname(String columnName, Sheet sheetAt) throws Exception
-{
-	
-	//Row rows;
-	FileInputStream fs = new FileInputStream(strReadFile);
-	Workbook wb = Workbook.getWorkbook(fs);
-	Sheet sh = wb.getSheet("Sheet1");
-	int rowCount=sh.getRows();
-   // Row rows;
-   // rows = sheetAt.getRows();
 
-    int col = -1;
-    for (int i=0; i<rowcount.getLastCellNum(); i++) {
-        Cell cell = rows.getCell(i);
-        if (cell == null || cell.getCellType() == Cell.CELL_TYPE_BLANK) {
-            continue;
-        }
-        if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
-            String text = cell.getStringCellValue();
-            if (columnName.equals(text)) {
-                col = i;
-                break;
-            }
-        }
-    }
-    if (col == -1) {
-        throw new Exception("None of the cells in the first row were Patch");
-    }
+	public int column(String columnName, Sheet sheetAt) throws Exception{
+	    Row row = sheetAt.getRow(0);
 
-    return col;
-}
+	    int col = -1;
+	    for (int i=0; i<row.getLastCellNum(); i++) {
+	        Cell cell = row.getCell(i);
+	        if (cell == null || cell.getCellType() == Cell.CELL_TYPE_BLANK) {
+	            continue;
+	        }
+	        if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+	            String text = cell.getStringCellValue();
+	            if (columnName.equals(text)) {
+	                col = i;
+	                break;
+	            }
+	        }
+	    }
+	    if (col == -1) {
+	        throw new Exception("None of the cells in the first row were Patch");
+	    }
 
+	    return col;
+	}
 }
