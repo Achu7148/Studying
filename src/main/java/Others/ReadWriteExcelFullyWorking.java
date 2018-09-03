@@ -42,7 +42,7 @@ public class ReadWriteExcelFullyWorking {
 	static List<String> arraylist = new ArrayList<String>(); 
 	static WritableWorkbook workbook=null; 
 	public static String strOutPutFile = "C:\\Users\\ashwanth.kolappan\\Documents\\My Received Files\\TestOutput.xls"; 
-	public static String strReadFile = "C:\\Users\\ashwanth.kolappan\\Documents\\My Received Files\\Book1.xls"; 
+	public static String strReadFile = "D:\\Book1.xls"; 
 	
 	
 	public static void main(String args[]) throws Exception, FindFailed, InterruptedException
