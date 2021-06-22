@@ -18,7 +18,7 @@ public class Pega {
 	public void Login() throws InterruptedException{
 	
 	
-				System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe"); 																										// up chromedriver
+				System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe"); 																										// up chromedriver
 			
 				driver = new ChromeDriver();
 				

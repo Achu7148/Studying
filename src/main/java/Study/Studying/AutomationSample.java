@@ -19,7 +19,7 @@ public class AutomationSample {
 	 
      WebDriver driver = new ChromeDriver();
      
-     driver.get("http://192.168.18.23:8080/OnlineTestingPortal/login.do");
+     //driver.get("http://192.168.18.23:8080/OnlineTestingPortal/login.do");
      
      driver.manage().window().maximize();
      
